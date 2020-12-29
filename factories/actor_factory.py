@@ -1,6 +1,8 @@
 """Create all Player, Enemy and NPC Objects"""
 
-import item_factory
+import factories.item_factory as iFac
 import actors
 
-player = actors.Player("Smarc", 100, "hero lel", iFac.weapons["shortsword"])
+
+def getPlayer():
+    return actors.Player("Smarc", 100, 1, 0, iFac.weapons["shortsword"])
