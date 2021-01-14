@@ -18,3 +18,6 @@ class Weapon(Item):
 
     def __str__(self):
         return super().__str__() + " (Damage: {})".format(self.damage)
+
+    def get_damage(self):
+        return self.damage

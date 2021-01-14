@@ -1,21 +1,36 @@
 """Main Game File"""
 
 import factories.actor_factory as aFac
+import factories.item_factory as iFac
+import game
 import sys
 
-player = aFac.getPlayer()
+player = None
 
 
-def newGame():
-    print("New Game chosen")
+def new_game():
+    name = input("Choose a name: ")
+    player = aFac.createPlayer(name, 100, 1, 0, iFac.weapons["shortsword"])
+
+    game.start_game(player)
 
 
-def loadGame():
+def load_game():
     print("Load Game chosen")
 
 
-def changeSettings():
+def change_settings():
     print("Change settings chosen")
+
+
+def chosen_option(argument):
+    switcher = {
+            '1': lambda: new_game(),
+            '2': lambda: load_game(),
+            '3': lambda: change_settings(),
+            '4': lambda: quit()
+        }
+    return switcher.get(argument, lambda: "fail")()
 
 
 print("\nMain Menu\n\n"
@@ -24,15 +39,4 @@ print("\nMain Menu\n\n"
       "[3] Settings\n"
       "[4] Quit\n")
 
-
-def chosenOption(argument):
-    switcher = {
-            '1': lambda: newGame(),
-            '2': lambda: loadGame(),
-            '3': lambda: changeSettings(),
-            '4': lambda: sys.exit()
-        }
-    return switcher.get(argument, lambda: "fail")()
-
-
-chosenOption(input("> "))
+chosen_option(input("> "))
