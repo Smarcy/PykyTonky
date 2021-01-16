@@ -4,5 +4,5 @@
 import actors
 
 
-def createPlayer(name, health, level, exp, weapon):
-    return actors.Player(name, health, level, exp, weapon)
+def createPlayer(name, health, level, exp, weapon, currentRoom):
+    return actors.Player(name, health, level, exp, weapon, currentRoom)

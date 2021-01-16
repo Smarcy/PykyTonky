@@ -2,15 +2,20 @@
 
 import factories.actor_factory as aFac
 import factories.item_factory as iFac
+import factories.room_factory as rFac
+import factories.door_factory as dFac
 import game
-import sys
+from misc import clearScreen
 
 player = None
 
 
 def new_game():
+    rFac.createRooms()
+    dFac.createDoors()
+    startRoom = rFac.rooms["Living Room"]
     name = input("Choose a name: ")
-    player = aFac.createPlayer(name, 100, 1, 0, iFac.weapons["shortsword"])
+    player = aFac.createPlayer(name, 100, 1, 0, iFac.weapons["shortsword"], startRoom)
 
     game.start_game(player)
 
@@ -33,10 +38,12 @@ def chosen_option(argument):
     return switcher.get(argument, lambda: "fail")()
 
 
-print("\nMain Menu\n\n"
+clearScreen()
+print("Main Menu\n\n"
       "[1] New Game\n"
       "[2] Load Game\n"
       "[3] Settings\n"
       "[4] Quit\n")
+
 
 chosen_option(input("> "))

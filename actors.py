@@ -13,10 +13,11 @@ class Actor:
 
 class Player(Actor):
 
-    def __init__(self, name, health, level, experience, weapon):
+    def __init__(self, name, health, level, experience, weapon, currentRoom):
         super().__init__(name, health, level, weapon.get_damage())
         self.experience = experience
         self.weapon = weapon
+        self.currentRoom = currentRoom
 
     def print_player_info(self):
         print(f"\n"
