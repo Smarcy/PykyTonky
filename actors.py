@@ -1,3 +1,6 @@
+from misc import colors
+
+
 class Actor:
     """Base class for all actors"""
 
@@ -20,12 +23,12 @@ class Player(Actor):
         self.currentRoom = currentRoom
 
     def print_player_info(self):
-        print(f"\n"
-              f"Name:   {self.name}\n"
-              f"Health: {self.health}\n"
-              f"Level:  {self.level}\n"
-              f"XP:     {self.experience}\n"
-              f"Weapon: {self.weapon}\n")
+        return(f"\n"
+               f"Name: {colors.GREEN}  {self.name}\n{colors.RESET}"
+               f"Health: {colors.GREEN}{self.health}\n{colors.RESET}"
+               f"Level: {colors.GREEN} {self.level}\n{colors.RESET}"
+               f"XP: {colors.GREEN}    {self.experience}\n{colors.RESET}"
+               f"Weapon: {colors.GREEN}{self.weapon}\n{colors.RESET}")
 
 
 class Enemy(Actor):

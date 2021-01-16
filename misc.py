@@ -1,7 +1,9 @@
 import os
 
+
 class colors():
-    BLACK = '\033[0m'
+    RESET = '\033[0m'
+
     WHITE = '\033[37m'
     RED = '\033[91m'
     GREEN = '\033[92m'
@@ -9,7 +11,6 @@ class colors():
     MAGENTA = '\033[95m'
     BLUE = '\033[96m'
 
-    BG_BLACK = '\033[0m'
     BG_BLUE = '\033[46m'
     BG_WHITE = '\033[47m'
     BG_RED = '\033[101m'

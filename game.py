@@ -15,15 +15,16 @@ def start_game():
 
     while run:
         clearScreen()
+        print(player.print_player_info())
         print(
             f"Current Location: ",
             colors.RED,
             f"{player.currentRoom}\n",
-            colors.WHITE)
+            colors.RESET)
 
         i = 1
         for door in player.currentRoom.doors:
-            print("[{}]".format(i), door.targetRoom)
+            print(f"[{i}]", door.targetRoom)
             i += 1
 
         change_location(player, int(input("> ")))
