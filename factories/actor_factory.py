@@ -5,4 +5,9 @@ import actors
 
 
 def createPlayer(name, health, level, exp, weapon, currentRoom):
-    return actors.Player(name, health, level, exp, weapon, currentRoom)
+    global player
+    player = actors.Player(name, health, level, exp, weapon, currentRoom)
+    return player
+
+def getPlayer():
+    return player

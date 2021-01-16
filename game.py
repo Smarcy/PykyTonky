@@ -1,19 +1,14 @@
-import factories.door_factory as dFac
 from misc import clearScreen
+import factories.room_factory as rFac
+import factories.door_factory as dFac
+import factories.actor_factory as aFac
 
 
-def change_location(location):
-    switcher = {
-            '1': lambda: go_north(),
-            '2': lambda: go_east(),
-            '3': lambda: go_south(),
-            '4': lambda: go_west()
-        }
-
-    return switcher.get(location, lambda: "fail")()
+def change_location(choice):
+    aFac.player.currentRoom = aFac.player.currentRoom.doors[choice-1].targetRoom
 
 
-def start_game(player):
+def start_game():
     run = True
 
     while run:
@@ -21,26 +16,11 @@ def start_game(player):
         print("Welcome to ApplePy!\n")
 
         i = 1
-        for door in player.currentRoom.doors:
+        for door in aFac.player.currentRoom.doors:
             print("[{}]".format(i), door.targetRoom)
             i += 1
 
-        change_location(input("> "))
+        change_location(int(input("> ")))
 
+        print("Location: {}".format(aFac.player.currentRoom))
         input()
-
-
-def go_north():
-    print("went north")
-
-
-def go_east():
-    print("went east")
-
-
-def go_south():
-    print("went south")
-
-
-def go_west():
-    print("went west")

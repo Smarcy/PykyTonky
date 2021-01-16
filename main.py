@@ -7,17 +7,21 @@ import factories.door_factory as dFac
 import game
 from misc import clearScreen
 
-player = None
-
 
 def new_game():
     rFac.createRooms()
     dFac.createDoors()
     startRoom = rFac.rooms["Living Room"]
     name = input("Choose a name: ")
-    player = aFac.createPlayer(name, 100, 1, 0, iFac.weapons["shortsword"], startRoom)
+    aFac.createPlayer(
+        name,
+        100,
+        1,
+        0,
+        iFac.weapons["shortsword"],
+        startRoom)
 
-    game.start_game(player)
+    game.start_game()
 
 
 def load_game():

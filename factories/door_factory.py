@@ -1,33 +1,33 @@
 import door
-import factories.room_factory
+import factories.room_factory as rFac
 
 
 def __init__():
-    factories.room_factory.createRooms()
+    rFac.createRooms()
 
 
 def createDoors():
 
-    thisDoor = door.Door("LivingRoomToHall", "Living Room", "Hall")
-    thisRoom = factories.room_factory.rooms.get("Living Room")
+    thisDoor = door.Door(rFac.rooms["Living Room"], rFac.rooms["Hall"])
+    thisRoom = rFac.rooms.get("Living Room")
     thisRoom.addDoor(thisDoor)
 
-    thisDoor = door.Door("HallToLivingRoom", "Hall", "Living Room")
-    thisRoom = factories.room_factory.rooms.get("Hall")
+    thisDoor = door.Door(rFac.rooms["Hall"], rFac.rooms["Living Room"])
+    thisRoom = rFac.rooms.get("Hall")
     thisRoom.addDoor(thisDoor)
 
-    thisDoor = door.Door("LivingRoomToStorage", "Living Room", "Storage")
-    thisRoom = factories.room_factory.rooms.get("Storage")
+    thisDoor = door.Door(rFac.rooms["Living Room"], rFac.rooms["Storage"])
+    thisRoom = rFac.rooms.get("Living Room")
     thisRoom.addDoor(thisDoor)
 
-    thisDoor = door.Door("StorageToLivingRoom", "Storage", "Living Room")
-    thisRoom = factories.room_factory.rooms.get("Living Room")
+    thisDoor = door.Door(rFac.rooms["Storage"], rFac.rooms["Living Room"])
+    thisRoom = rFac.rooms.get("Storage")
     thisRoom.addDoor(thisDoor)
 
-    thisDoor = door.Door("HallToMarketPlace", "Hall", "Marketplace")
-    thisRoom = factories.room_factory.rooms.get("Hall")
+    thisDoor = door.Door(rFac.rooms["Hall"], rFac.rooms["Marketplace"])
+    thisRoom = rFac.rooms.get("Hall")
     thisRoom.addDoor(thisDoor)
 
-    thisDoor = door.Door("MarketplaceToHall", "Marketplace", "Hall")
-    thisRoom = factories.room_factory.rooms.get("Marketplace")
+    thisDoor = door.Door(rFac.rooms["Marketplace"], rFac.rooms["Hall"])
+    thisRoom = rFac.rooms.get("Marketplace")
     thisRoom.addDoor(thisDoor)
