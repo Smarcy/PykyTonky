@@ -3,7 +3,6 @@
 # import factories.item_factory as iFac
 import actors
 
-
 def createPlayer(name, health, level, exp, weapon, currentRoom):
     global player
     player = actors.Player(name, health, level, exp, weapon, currentRoom)
