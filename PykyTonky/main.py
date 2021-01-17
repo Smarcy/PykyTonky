@@ -1,10 +1,9 @@
 """Main Game File"""
 
-import factories.room_factory
-import factories.room_factory as rFac
-import factories.door_factory as dFac
-import game
-from misc import clearScreen
+import PykyTonky.factories.room_factory as rFac
+import PykyTonky.factories.door_factory as dFac
+from PykyTonky.misc import clearScreen
+import PykyTonky.game as game
 
 
 def new_game():
