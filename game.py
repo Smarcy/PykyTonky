@@ -3,15 +3,16 @@
 from misc import colors, clearScreen
 from actors import Player
 from factories.item_factory import weapons
+import factories.room_factory as rFac
 
 
 def change_location(player, choice):
     player.currentRoom = player.currentRoom.doors[choice-1].targetRoom
 
 
-def start_game(name, start_room):
+def start_game(name):
 
-    player = Player(name, 100, 1, 0, weapons["shortsword"], start_room)
+    player = Player(name, 100, 1, 0, weapons["shortsword"], rFac.rooms["Living Room"])
     run = True
 
     while run:

@@ -9,10 +9,9 @@ from misc import clearScreen
 def new_game():
     rFac.createRooms()
     dFac.createDoors()
-    start_room = rFac.rooms["Living Room"]
     name = input("Choose a name: ")
 
-    game.start_game(name, start_room)
+    game.start_game(name)
 
 
 def load_game():
