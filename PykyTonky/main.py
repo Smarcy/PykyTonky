@@ -28,7 +28,7 @@ def change_settings():
 
 def chosen_option(argument):
     switcher = {
-        1 : lambda: new_game(),
+        1: lambda: new_game(),
         2: lambda: load_game(),
         3: lambda: change_settings(),
         4: lambda: quit()
@@ -48,7 +48,7 @@ def show_intro():
     # Check if input is in correct range && actually a number
     try:
         option = int(input("> "))
-        if option > 4:
+        if option > 4 or option < 1:
             print("No valid input!")
             input()
             show_intro()

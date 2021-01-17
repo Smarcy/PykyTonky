@@ -25,19 +25,28 @@ def start_game(name):
             f"{player.currentRoom}\n",
             colors.RESET)
 
-        i = 1
+        i = 0
         for door in player.currentRoom.doors:
-            print(f"[{i}]", door.targetRoom)
             i += 1
+            print(f"[{i}]", door.targetRoom)
+
+        i += 1
+        print(f"[{i}] Print Player Info")
+
+        # Check if Input is in range && actually a number
         try:
             option = int(input("> "))
-            if option > i:
+            if option == i:
+                print(player.print_player_info())
+                input()
+                continue
+            if option > i or option < 1:
                 print("No valid Input!")
                 input()
                 start_game(name)
             else:
                 change_location(player, option)
-        except:
+        except ValueError:
             print("Input must be a number!")
             input()
             start_game(name)
