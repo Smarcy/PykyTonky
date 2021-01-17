@@ -1,9 +1,9 @@
 """Main Game File"""
 
-import PykyTonky.factories.room_factory as rFac
-import PykyTonky.factories.door_factory as dFac
-from PykyTonky.misc import clearScreen
-import PykyTonky.game as game
+import factories.room_factory as rFac
+import factories.door_factory as dFac
+from misc import clearScreen
+import game as game
 
 
 def new_game():
@@ -28,10 +28,10 @@ def change_settings():
 
 def chosen_option(argument):
     switcher = {
-        '1': lambda: new_game(),
-        '2': lambda: load_game(),
-        '3': lambda: change_settings(),
-        '4': lambda: quit()
+        1 : lambda: new_game(),
+        2: lambda: load_game(),
+        3: lambda: change_settings(),
+        4: lambda: quit()
     }
     return switcher.get(argument, lambda: "fail")()
 
@@ -45,7 +45,19 @@ def show_intro():
           "[3] Settings\n"
           "[4] Quit\n")
 
-    chosen_option(input("> "))
+    # Check if input is in correct range && actually a number
+    try:
+        option = int(input("> "))
+        if option > 4:
+            print("No valid input!")
+            input()
+            show_intro()
+        else:
+            chosen_option(option)
+    except ValueError:
+        print("Input must be a number!")
+        input()
+        show_intro()
 
 
 if __name__ == "__main__":

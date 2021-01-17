@@ -1,9 +1,9 @@
 """Contains the main game loop"""
 
-from PykyTonky.misc import colors, clearScreen
-from PykyTonky.model.actors import Player
-from PykyTonky.factories.item_factory import weapons
-import PykyTonky.factories.room_factory as rFac
+from misc import colors, clearScreen
+from model.actors import Player
+from factories.item_factory import weapons
+import factories.room_factory as rFac
 
 
 def change_location(player, choice):
@@ -29,7 +29,17 @@ def start_game(name):
         for door in player.currentRoom.doors:
             print(f"[{i}]", door.targetRoom)
             i += 1
-
-        change_location(player, int(input("> ")))
+        try:
+            option = int(input("> "))
+            if option > i:
+                print("No valid Input!")
+                input()
+                start_game(name)
+            else:
+                change_location(player, option)
+        except:
+            print("Input must be a number!")
+            input()
+            start_game(name)
 
         print("Location: {}".format(player.currentRoom))
