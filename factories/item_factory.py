@@ -1,8 +1,8 @@
 """Create all Items, Weapons etc."""
 
-import items
+from items import Weapon
 
 weapons = {}
 
-weapons["shortsword"] = items.Weapon("Shortsword", 10, 3, 100)
-weapons["tomahawk"] = items.Weapon("Tomahawk", 10, 4, 100)
+weapons["shortsword"] = Weapon("Shortsword", 10, 3, 100)
+weapons["tomahawk"] = Weapon("Tomahawk", 10, 4, 100)

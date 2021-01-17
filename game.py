@@ -1,21 +1,21 @@
+"""Contains the main game loop"""
+
 from misc import colors, clearScreen
-import factories.room_factory as rFac
-import factories.door_factory as dFac
-import factories.actor_factory as aFac
+from actors import Player
+from factories.item_factory import weapons
 
 
 def change_location(player, choice):
     player.currentRoom = player.currentRoom.doors[choice-1].targetRoom
 
 
-def start_game():
+def start_game(name, start_room):
 
-    player = aFac.player
+    player = Player(name, 100, 1, 0, weapons["shortsword"], start_room)
     run = True
 
     while run:
         clearScreen()
-        print(player.print_player_info())
         print(
             f"Current Location: ",
             colors.RED,
