@@ -1,5 +1,4 @@
 """Contains the main game loop"""
-
 from misc import colors, clearScreen
 from model.actors import Player
 from factories.item_factory import weapons
@@ -11,11 +10,18 @@ def change_location(player, choice):
 
 
 def start_game(name):
-
-    player = Player(
-        name, 100, 1, 0, weapons["shortsword"],
-        rFac.rooms["Living Room"])
     run = True
+
+    player = None
+
+    # Check if Player is already set so the currentRoom stays the same after
+    # printPlayer Info
+    try:
+        player = Player(
+            name, 100, 1, 0, weapons["shortsword"],
+            rFac.rooms["Living Room"])
+    except NameError:
+        pass
 
     while run:
         clearScreen()
