@@ -1,5 +1,6 @@
 """Main Game File"""
 
+import factories.room_factory
 import factories.room_factory as rFac
 import factories.door_factory as dFac
 import game

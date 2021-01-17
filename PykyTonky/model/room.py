@@ -1,7 +1,3 @@
-import door
-import factories.room_factory
-
-
 class Room():
 
     def __init__(self, name, hasMonster):

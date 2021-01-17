@@ -1,7 +1,8 @@
 """Contains the main game loop"""
 
+
 from misc import colors, clearScreen
-from actors import Player
+from model.actors import Player
 from factories.item_factory import weapons
 import factories.room_factory as rFac
 
