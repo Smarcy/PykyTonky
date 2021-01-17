@@ -16,10 +16,14 @@ def new_game():
 
 def load_game():
     print("Load Game chosen")
+    input()
+    show_intro()
 
 
 def change_settings():
     print("Change settings chosen")
+    input()
+    show_intro()
 
 
 def chosen_option(argument):

@@ -12,7 +12,9 @@ def change_location(player, choice):
 
 def start_game(name):
 
-    player = Player(name, 100, 1, 0, weapons["shortsword"], rFac.rooms["Living Room"])
+    player = Player(
+        name, 100, 1, 0, weapons["shortsword"],
+        rFac.rooms["Living Room"])
     run = True
 
     while run:
