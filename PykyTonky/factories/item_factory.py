@@ -1,6 +1,6 @@
 """Create all Items, Weapons etc."""
 
-from model.items import Weapon
+from PykyTonky.model.items import Weapon
 
 weapons = {}
 

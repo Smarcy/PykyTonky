@@ -1,5 +1,5 @@
-from model import door
-import factories.room_factory as rFac
+from PykyTonky.model import door
+import PykyTonky.factories.room_factory as rFac
 
 
 def __init__():

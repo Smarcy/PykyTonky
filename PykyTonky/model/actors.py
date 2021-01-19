@@ -1,4 +1,4 @@
-from misc import colors
+from PykyTonky.misc import clearScreen, colors
 
 
 class Actor:
@@ -23,8 +23,8 @@ class Player(Actor):
         self.currentRoom = currentRoom
 
     def print_player_info(self):
-        return(f"\n"
-               f"Name: {colors.GREEN}  {self.name}\n{colors.RESET}"
+        clearScreen()
+        return(f"Name: {colors.GREEN}  {self.name}\n{colors.RESET}"
                f"Health: {colors.GREEN}{self.health}\n{colors.RESET}"
                f"Level: {colors.GREEN} {self.level}\n{colors.RESET}"
                f"XP: {colors.GREEN}    {self.experience}\n{colors.RESET}"

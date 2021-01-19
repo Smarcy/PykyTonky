@@ -1,8 +1,8 @@
 """Contains the main game loop"""
-from misc import colors, clearScreen
-from model.actors import Player
-from factories.item_factory import weapons
-import factories.room_factory as rFac
+from PykyTonky.misc import colors, clearScreen
+from PykyTonky.model.actors import Player
+from PykyTonky.factories.item_factory import weapons
+import PykyTonky.factories.room_factory as rFac
 
 
 def change_location(player, choice):

@@ -1,4 +1,4 @@
-from model import room
+from PykyTonky.model import room
 
 rooms = {}
 

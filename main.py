@@ -1,14 +1,15 @@
 """Main Game File"""
 
-import factories.room_factory as rFac
-import factories.door_factory as dFac
-from misc import clearScreen
-import game as game
+import PykyTonky.factories.room_factory as rFac
+import PykyTonky.factories.door_factory as dFac
+from PykyTonky.misc import clearScreen
+import PykyTonky.game as game
 
 
 def new_game():
     rFac.createRooms()
     dFac.createDoors()
+    clearScreen()
     name = input("Choose a name: ")
 
     game.start_game(name)
