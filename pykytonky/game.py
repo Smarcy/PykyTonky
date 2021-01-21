@@ -1,15 +1,19 @@
 """Contains the main game loop"""
-from PykyTonky.misc import colors, clearScreen
-from PykyTonky.model.actors import Player
-from PykyTonky.factories.item_factory import weapons
-import PykyTonky.factories.room_factory as rFac
+import sys
+
+from pykytonky.misc import Colors, clear_screen
+from pykytonky.model.actors import Player
+from pykytonky.factories.item_factory import weapons
+import pykytonky.factories.room_factory as rFac
 
 
 def change_location(player, choice):
-    player.currentRoom = player.currentRoom.doors[choice-1].targetRoom
+    """Change the Players room accordingly"""
+    player.current_room = player.current_room.doors[choice-1].target_room
 
 
 def start_game(name):
+    """Main Game Loop"""
     run = True
 
     player = None
@@ -24,20 +28,26 @@ def start_game(name):
         pass
 
     while run:
-        clearScreen()
+        clear_screen()
         print(
-            f"Current Location: ",
-            colors.RED,
-            f"{player.currentRoom}\n",
-            colors.RESET)
+            "Name:             ",
+            Colors.BLUE,
+            f"{player.name}",
+            Colors.RESET)
+        print(
+            "Current Location: ",
+            Colors.RED,
+            f"{player.current_room}\n",
+            Colors.RESET)
 
         i = 0
-        for door in player.currentRoom.doors:
+        for door in player.current_room.doors:
             i += 1
-            print(f"[{i}]", door.targetRoom)
+            print(f"[{i}]", door.target_room)
 
         i += 1
         print(f"[{i}] Print Player Info")
+        print(f"[{i+1}] Quit")
 
         # Check if Input is in range && actually a number
         try:
@@ -46,6 +56,8 @@ def start_game(name):
                 print(player.print_player_info())
                 input()
                 continue
+            if option == i+1:
+                sys.exit()
             if option > i or option < 1:
                 print("No valid Input!")
                 input()
@@ -57,4 +69,4 @@ def start_game(name):
             input()
             start_game(name)
 
-        print("Location: {}".format(player.currentRoom))
+        print("Location: {}".format(player.current_room))

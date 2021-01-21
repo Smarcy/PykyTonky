@@ -1,45 +1,49 @@
 """Main Game File"""
 
-import PykyTonky.factories.room_factory as rFac
-import PykyTonky.factories.door_factory as dFac
-from PykyTonky.misc import clearScreen
-import PykyTonky.game as game
+import pykytonky.factories.room_factory as rFac
+import pykytonky.factories.door_factory as dFac
+from pykytonky.misc import clear_screen
+import pykytonky.game as game
 
 
 def new_game():
-    rFac.createRooms()
-    dFac.createDoors()
-    clearScreen()
+    """Initiates a new game by choosing a name"""
+    rFac.create_rooms()
+    dFac.create_doors()
+    clear_screen()
     name = input("Choose a name: ")
 
     game.start_game(name)
 
 
 def load_game():
+    """TODO: Load a saved game"""
     print("Load Game chosen")
     input()
     show_intro()
 
 
 def change_settings():
+    """TODO: Change several Settings"""
     print("Change settings chosen")
     input()
     show_intro()
 
 
 def chosen_option(argument):
+    """Evaluate which option was chosen"""
     switcher = {
-        1: lambda: new_game(),
-        2: lambda: load_game(),
-        3: lambda: change_settings(),
-        4: lambda: quit()
+        1: new_game,
+        2: load_game,
+        3: change_settings,
+        4: quit
     }
     return switcher.get(argument, lambda: "fail")()
 
 
 def show_intro():
-
-    clearScreen()
+    """Display intro options and take user input"""
+    clear_screen()
     print("Main Menu\n\n"
           "[1] New Game\n"
           "[2] Load Game\n"

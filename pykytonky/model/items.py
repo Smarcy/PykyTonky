@@ -1,3 +1,5 @@
+"""All kinds of Items in the Game"""
+
 class Item():
     """Base class for all items"""
 
@@ -10,6 +12,7 @@ class Item():
 
 
 class Weapon(Item):
+    """Items that have damage and can be equipped"""
 
     def __init__(self, name, value, damage, condition):
         super().__init__(name, value)
@@ -18,6 +21,3 @@ class Weapon(Item):
 
     def __str__(self):
         return super().__str__() + " (Damage: {})".format(self.damage)
-
-    def get_damage(self):
-        return self.damage

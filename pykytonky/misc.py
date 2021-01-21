@@ -1,7 +1,10 @@
+"""Miscellaneuos Functions"""
+
 import os
 
 
-class colors():
+class Colors():
+    """Color codes for ANSI Colors"""
     RESET = '\033[0m'
 
     WHITE = '\033[37m'
@@ -19,5 +22,6 @@ class colors():
     BG_MAGENTA = '\033[105m'
 
 
-def clearScreen():
+def clear_screen():
+    """Clear Terminal screen"""
     os.system('cls' if os.name == 'nt' else 'clear')
